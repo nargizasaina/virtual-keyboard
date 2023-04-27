@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+}
+
+.root {
+    background-color: #eee;
+    height: 90vh;
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+}
+
+textArea{
+    width: 80%;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+textArea:focus{
+    box-shadow: 2px 2px 5px #888888;
+}
