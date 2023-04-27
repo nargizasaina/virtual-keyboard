@@ -1,13 +1,16 @@
 body {
     margin: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 
 .root {
-    background-color: #eee;
-    height: 90vh;
+    background-color: #2b1111;
+    height: 93.5vh;
     text-align: center;
     padding: 20px;
     font-size: 16px;
+    color: aliceblue;
 }
 
 textArea{
@@ -16,8 +19,40 @@ textArea{
     border: none;
     border-radius: 8px;
     padding: 15px;
+    background-color: #b1a8a8;
 }
 
 textArea:focus{
     box-shadow: 2px 2px 5px #888888;
+}
+
+.key {
+    height: 65px;
+    width: 6%;
+    max-width: 90px;
+    margin: 4px;
+    border-radius: 2px;
+    border: none;
+    background: #666666;
+    color: #ffffff;
+    font-size: 1.05rem;
+    outline: none;
+    cursor: pointer;
+    vertical-align: top;
+    padding: 0;
+    -webkit-transition: 0.1s linear;
+    transition: 0.1s linear;
+    display: inline;
+}
+
+.wide-btn {
+    font-size: 0.8rem;
+    width: 12%;
+    display: inline;
+}
+
+.space-btn{
+    width: 30%;
+    max-width: 500px;
+    display: inline;
 }
