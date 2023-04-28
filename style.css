@@ -26,6 +26,14 @@ textArea:focus{
     box-shadow: 2px 2px 5px #888888;
 }
 
+.board {
+    border: 1px solid #888888;
+    padding: 10px 0;
+    width: 82%;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+
 .key {
     height: 65px;
     width: 6%;
@@ -35,24 +43,22 @@ textArea:focus{
     border: none;
     background: #666666;
     color: #ffffff;
-    font-size: 1.05rem;
     outline: none;
     cursor: pointer;
-    vertical-align: top;
-    padding: 0;
+    vertical-align: middle;
     -webkit-transition: 0.1s linear;
     transition: 0.1s linear;
-    display: inline;
+    display: inline-block;
 }
 
 .wide-btn {
     font-size: 0.8rem;
     width: 12%;
-    display: inline;
+    display: inline-block;
 }
 
 .space-btn{
     width: 30%;
     max-width: 500px;
-    display: inline;
+    display: inline-block;
 }
