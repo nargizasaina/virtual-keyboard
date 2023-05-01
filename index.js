@@ -33,13 +33,8 @@ root.append(info);
 root.append(textPart);
 let board;
 
-let capsLock = false,
-    value = '',
-    isEnglish = true,
-    main = null,
-    textarea = null,
-    keysContainer = null,
-    keys = [];
+let capsLock = false;
+let isEnglish = true;
 
 const toggleCapsLock = () => {
   capsLock = !capsLock;
@@ -163,8 +158,7 @@ const imitateKeyboard = () => {
     e.preventDefault();
     switch (e.code) {
       case 'Backspace':
-        let text = textArea.value;
-        textArea.value = text.slice(0, text.length - 1);
+        textArea.value = textArea.value.slice(0, textArea.value.length - 1);
         break;
 
       case 'Tab':
