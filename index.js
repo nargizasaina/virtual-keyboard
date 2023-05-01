@@ -1,25 +1,27 @@
 let keyboard = [
-    ['`', 'ё', 'Backquote'], ['1', '1', 'Digit1'], ['2', '2', 'Digit2'], ['3', '3', 'Digit3'], ['4', '4', 'Digit4'], 
-    ['5', '5', 'Digit5'], ['6', '6', 'Digit6'], ['7', '7', 'Digit7'], ['8', '8', 'Digit8'], ['9', '9', 'Digit9'], 
-    ['0', '0', 'Digit0'], ['-', '-', 'Minus'], ['=', '=', 'Equal'], ['backspace', 'backspace', 'Backspace'],
-    ['tab', 'tab', 'Tab'], ['q', 'й', 'KeyQ'], ['w', 'ц', 'KeyW'], ['e', 'у', 'KeyE'], ['r', 'к', 'KeyR'], 
-    ['t', 'е', 'KeyT'], ['y', 'н', 'KeyY'], ['u', 'г', 'KeyU'], ['i', 'ш', 'KeyI'], ['o', 'щ', 'KeyO'], 
-    ['p', 'з', 'KeyP'], ['[', 'х', 'BracketLeft'], [']', 'ъ', 'BracketRight'], ['\\', '|', 'Backslash'],
-    ['caps lock', 'caps lock', 'CapsLock'], ['a', 'ф', 'KeyA'], ['s', 'ы', 'KeyS'], ['d', 'в', 'KeyD'], 
-    ['f', 'а', 'KeyF'], ['g', 'п', 'KeyG'], ['h', 'р', 'KeyH'], ['j', 'о', 'KeyJ'], ['k', 'л', 'KeyK'], 
-    ['l', 'д', 'KeyL'], [';', 'ж', 'Semicolon'], ["'", 'э', 'Quote'], ['enter', 'enter', 'Enter'],
-    ['shift', 'shift', 'ShiftLeft'], ['z', 'я', 'KeyZ'], ['x', 'ч', 'KeyX'], ['c', 'с', 'KeyC'], 
-    ['v', 'и', 'KeyV'], ['b', 'и', 'KeyB'], ['n', 'т', 'KeyN'], ['m', 'ь', 'KeyM'], [',', 'б', 'Comma'], 
-    ['.', 'ю', 'Period'], ['/', '.', 'Slash'], ['shift', 'shift', 'ShiftRight'],
-    ['ctrl', 'ctrl', 'ControlLeft'], ['alt', 'alt', 'AltLeft'], ['space', 'пробел', 'Space'], 
-    ['alt', 'alt', 'AltRight'], ['ctrl', 'ctrl', 'ControlRight'],
-  ];
+  ['`', 'ё', 'Backquote'], ['1', '1', 'Digit1'], ['2', '2', 'Digit2'], ['3', '3', 'Digit3'], ['4', '4', 'Digit4'], 
+  ['5', '5', 'Digit5'], ['6', '6', 'Digit6'], ['7', '7', 'Digit7'], ['8', '8', 'Digit8'], ['9', '9', 'Digit9'], 
+  ['0', '0', 'Digit0'], ['-', '-', 'Minus'], ['=', '=', 'Equal'], ['backspace', 'backspace', 'Backspace'],
+  ['tab', 'tab', 'Tab'], ['q', 'й', 'KeyQ'], ['w', 'ц', 'KeyW'], ['e', 'у', 'KeyE'], ['r', 'к', 'KeyR'], 
+  ['t', 'е', 'KeyT'], ['y', 'н', 'KeyY'], ['u', 'г', 'KeyU'], ['i', 'ш', 'KeyI'], ['o', 'щ', 'KeyO'], 
+  ['p', 'з', 'KeyP'], ['[', 'х', 'BracketLeft'], [']', 'ъ', 'BracketRight'], ['\\', '|', 'Backslash'],
+  ['caps lock', 'caps lock', 'CapsLock'], ['a', 'ф', 'KeyA'], ['s', 'ы', 'KeyS'], ['d', 'в', 'KeyD'], 
+  ['f', 'а', 'KeyF'], ['g', 'п', 'KeyG'], ['h', 'р', 'KeyH'], ['j', 'о', 'KeyJ'], ['k', 'л', 'KeyK'], 
+  ['l', 'д', 'KeyL'], [';', 'ж', 'Semicolon'], ["'", 'э', 'Quote'], ['enter', 'enter', 'Enter'],
+  ['shift', 'shift', 'ShiftLeft'], ['z', 'я', 'KeyZ'], ['x', 'ч', 'KeyX'], ['c', 'с', 'KeyC'], 
+  ['v', 'м', 'KeyV'], ['b', 'и', 'KeyB'], ['n', 'т', 'KeyN'], ['m', 'ь', 'KeyM'], [',', 'б', 'Comma'], 
+  ['.', 'ю', 'Period'], ['/', '.', 'Slash'], ['↑', '↑', 'ArrowUp'], ['shift', 'shift', 'ShiftRight'],
+  ['ctrl', 'ctrl', 'ControlLeft'], ['alt', 'alt', 'AltLeft'], ['space', 'пробел', 'Space'], 
+  ['alt', 'alt', 'AltRight'], ['ctrl', 'ctrl', 'ControlRight'], ['←', '←', 'ArrowLeft'], ['↓', '↓', 'ArrowDown'], ['→', '→', 'ArrowRight']
+];
 
 const body = document.body;
 const root = document.createElement('div');
 root.className = "root";
 body.append(root);
-
+const info = document.createElement('div');
+info.className = 'info';
+info.innerHTML = "INFO: Press Shift + Alt to change the language";
 const textPart = document.createElement('div');
 const title = document.createElement('h3');
 title.innerHTML = "Virtual Keyboard";
@@ -27,6 +29,7 @@ const textArea = document.createElement('textarea');
 textArea.setAttribute("rows", 5);
 textPart.append(title);
 textPart.append(textArea);
+root.append(info);
 root.append(textPart);
 let board;
 
@@ -46,7 +49,9 @@ const toggleCapsLock = () => {
   });
 };
 
-isEnglish ? localStorage.setItem("isEnglish", true) : localStorage.setItem("isEnglish", false);
+localStorage.getItem('isEnglish') !== null ? 
+  localStorage.getItem('isEnglish') === true ? isEnglish = true : isEnglish = false 
+  : isEnglish === true;
 
 const addKey = () => {
   board = document.createElement('div');
@@ -129,7 +134,7 @@ const addKey = () => {
       default: {
         key.classList.add('letters');
         let [, letter] = item;
-        if (!isEnglish) {
+        if (isEnglish) {
           [letter] = item;
         }
         key.innerHTML = letter;
@@ -193,16 +198,16 @@ const imitateKeyboard = () => {
         keyboard.forEach((item) => {
           if (item[2] === e.code) {
             if (isEnglish) {
-              if (!capsLock) {
-                textArea.value += item[0].toLowerCase();
-              } else {
+              if (capsLock) {
                 textArea.value += item[0].toUpperCase();
+              } else {
+                textArea.value += item[0].toLowerCase();
               }
             } else {
-              if (!capsLock) {
-                textArea.value += item[1].toLowerCase();
-              } else {
+              if (capsLock) {
                 textArea.value += item[1].toUpperCase();
+              } else {
+                textArea.value += item[1].toLowerCase();
               }
             }
           } 
@@ -233,18 +238,15 @@ const addShortcuts = () => {
   const pressed = new Set();
   document.addEventListener('keydown', (e) => {
     pressed.add(e.code);
-    console.log(pressed);
     if ((pressed.has('AltLeft') && pressed.has('ShiftLeft')) ||
         (pressed.has('AltLeft') && pressed.has('ShiftRight')) || 
         (pressed.has('AltRight') && pressed.has('ShiftLeft')) || 
         (pressed.has('AltRight') && pressed.has('ShiftRight'))) {
           isEnglish = !isEnglish;
-          console.log('here');
+          localStorage.setItem('isEnglish', isEnglish);
           board.remove();
           addKey();
         }
-
-    // pressed.clear();
   });
 
   document.addEventListener('keyup', (e) => {

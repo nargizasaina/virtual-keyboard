@@ -13,6 +13,10 @@ body {
     color: aliceblue;
 }
 
+.info{
+    text-align: left;
+}
+
 textArea{
     width: 80%;
     outline: none;
@@ -27,24 +31,18 @@ textArea:focus{
 }
 
 .board {
-    border: 1px solid #888888;
     padding: 10px 0;
-    /* width: 82%;
-    max-width: 90%; */
     margin: 0 auto;
     border-radius: 4px;
 }
 
 .key {
     height: 40px;
-    width: 6%;
-    max-width: 90px;
+    width: 72px;
     margin: 4px;
     border-radius: 2px;
-    border: none;
     background: #666666;
     color: #ffffff;
-    outline: none;
     cursor: pointer;
     vertical-align: middle;
     transition: 0.1s linear;
@@ -54,7 +52,7 @@ textArea:focus{
 
 .wide-btn {
     font-size: 0.8rem;
-    width: 12%;
+    width: 90px;
     display: inline-block;
 }
 
@@ -68,4 +66,34 @@ textArea:focus{
 .key:active{
     background: #6d5151;
     border-radius: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+    .key {
+        width: 50px;
+    }
+    
+    .wide-btn {
+        width: 90px;
+    }
+
+    .space-btn{
+        width: 180px;
+    }
+}
+
+@media screen and (max-width: 910px) {
+    .key {
+        height: 30px;
+        width: 30px;
+        padding-top: 8px;
+    }
+    
+    .wide-btn {
+        width: 40px;
+    }
+
+    .space-btn{
+        width: 180px;
+    }
 }
