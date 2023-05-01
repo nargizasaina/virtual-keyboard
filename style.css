@@ -29,13 +29,14 @@ textArea:focus{
 .board {
     border: 1px solid #888888;
     padding: 10px 0;
-    width: 82%;
+    /* width: 82%;
+    max-width: 90%; */
     margin: 0 auto;
     border-radius: 4px;
 }
 
 .key {
-    height: 65px;
+    height: 40px;
     width: 6%;
     max-width: 90px;
     margin: 4px;
@@ -46,9 +47,9 @@ textArea:focus{
     outline: none;
     cursor: pointer;
     vertical-align: middle;
-    -webkit-transition: 0.1s linear;
     transition: 0.1s linear;
     display: inline-block;
+    padding-top: 20px;
 }
 
 .wide-btn {
@@ -61,4 +62,10 @@ textArea:focus{
     width: 30%;
     max-width: 500px;
     display: inline-block;
+}
+
+.active,
+.key:active{
+    background: #6d5151;
+    border-radius: 10px;
 }
