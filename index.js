@@ -34,7 +34,11 @@ root.append(textPart);
 let board;
 
 let capsLock = false;
-let isEnglish = true;
+let isEnglish = JSON.parse(localStorage.getItem('isEnglish'));
+
+if (isEnglish === null) {
+  isEnglish = true;
+}
 
 const toggleCapsLock = () => {
   capsLock = !capsLock;
@@ -43,10 +47,6 @@ const toggleCapsLock = () => {
     capsLock ? key.innerHTML = key.innerHTML.toUpperCase() : key.innerHTML = key.innerHTML.toLowerCase();
   });
 };
-
-localStorage.getItem('isEnglish') !== null ? 
-  localStorage.getItem('isEnglish') === true ? isEnglish = true : isEnglish = false 
-  : isEnglish === true;
 
 const addKey = () => {
   board = document.createElement('div');
@@ -128,9 +128,11 @@ const addKey = () => {
 
       default: {
         key.classList.add('letters');
-        let [, letter] = item;
+        let letter;
         if (isEnglish) {
-          [letter] = item;
+          letter = item[0];
+        } else {
+          letter = item[1];
         }
         key.innerHTML = letter;
 
@@ -223,10 +225,6 @@ const imitateKeyboard = () => {
     }
   });
 }
-
-window.addEventListener('DOMContentLoaded', () => {
-  localStorage.getItem('isEnglish') === true ? isEnglish = true : isEnglish = false;
-});
 
 const addShortcuts = () => {
   const pressed = new Set();
