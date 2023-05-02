@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+.root {
+    background-color: #2b1111;
+    height: 93.5vh;
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+    color: aliceblue;
+}
+
+.info{
+    text-align: left;
+}
+
+textArea{
+    width: 80%;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #b1a8a8;
+}
+
+textArea:focus{
+    box-shadow: 2px 2px 5px #888888;
+}
+
+.board {
+    padding: 10px 0;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+
+.key {
+    height: 40px;
+    width: 72px;
+    margin: 4px;
+    border-radius: 2px;
+    background: #666666;
+    color: #ffffff;
+    cursor: pointer;
+    vertical-align: middle;
+    transition: 0.1s linear;
+    display: inline-block;
+    padding-top: 20px;
+}
+
+.wide-btn {
+    font-size: 0.8rem;
+    width: 90px;
+    display: inline-block;
+}
+
+.space-btn{
+    width: 30%;
+    max-width: 500px;
+    display: inline-block;
+}
+
+.active,
+.key:active{
+    background: #6d5151;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+    .key {
+        width: 50px;
+    }
+    
+    .wide-btn {
+        width: 90px;
+    }
+
+    .space-btn{
+        width: 180px;
+    }
+}
+
+@media screen and (max-width: 910px) {
+    .key {
+        height: 30px;
+        width: 30px;
+        padding-top: 8px;
+    }
+    
+    .wide-btn {
+        width: 40px;
+    }
+
+    .space-btn{
+        width: 180px;
+    }
+}
